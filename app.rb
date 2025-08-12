@@ -1,48 +1,58 @@
 require 'sinatra'
 require 'json'
 
-# Simple in-memory storage for affirmations
-$affirmations = [
-  {
-    id: 1,
-    text: "I am capable of achieving great things",
-    category: "motivation",
-    author: "Anonymous"
-  },
-  {
-    id: 2,
-    text: "Every day is a new opportunity to grow",
-    category: "growth",
-    author: "Anonymous"
-  },
-  {
-    id: 3,
-    text: "I choose to be confident and strong",
-    category: "confidence",
-    author: "Anonymous"
-  },
-  {
-    id: 4,
-    text: "My potential is limitless",
-    category: "potential",
-    author: "Anonymous"
-  },
-  {
-    id: 5,
-    text: "I am worthy of love and respect",
-    category: "self-worth",
-    author: "Anonymous"
-  }
-]
+# Load affirmations from JSON file
+def load_affirmations
+  if File.exist?('affirmations.json')
+    JSON.parse(File.read('affirmations.json'))
+  else
+    # Fallback to original affirmations if file doesn't exist
+    [
+      {
+        id: 1,
+        text: "I am capable of achieving great things",
+        category: "motivation",
+        author: "Anonymous"
+      },
+      {
+        id: 2,
+        text: "Every day is a new opportunity to grow",
+        category: "growth",
+        author: "Anonymous"
+      },
+      {
+        id: 3,
+        text: "I choose to be confident and strong",
+        category: "confidence",
+        author: "Anonymous"
+      },
+      {
+        id: 4,
+        text: "My potential is limitless",
+        category: "potential",
+        author: "Anonymous"
+      },
+      {
+        id: 5,
+        text: "I am worthy of love and respect",
+        category: "self-worth",
+        author: "Anonymous"
+      }
+    ]
+  end
+end
+
+# Load affirmations into memory
+$affirmations = load_affirmations
 
 # Helper method to find next ID
 def next_id
-  $affirmations.empty? ? 1 : $affirmations.map { |a| a[:id] }.max + 1
+  $affirmations.empty? ? 1 : $affirmations.map { |a| a['id'] || a[:id] }.max + 1
 end
 
 # Helper method to find affirmation by ID
 def find_affirmation(id)
-  $affirmations.find { |a| a[:id] == id.to_i }
+  $affirmations.find { |a| (a['id'] || a[:id]) == id.to_i }
 end
 
 # Routes
@@ -51,6 +61,7 @@ get '/' do
   {
     message: 'Welcome to the Affirmations API!',
     version: '1.0.0',
+    total_affirmations: $affirmations.length,
     endpoints: {
       affirmations: '/affirmations',
       random_affirmation: '/affirmations/random',
@@ -76,7 +87,7 @@ end
 get '/affirmations/category/:category' do
   content_type :json
   category = params[:category]
-  filtered_affirmations = $affirmations.select { |a| a[:category] == category }
+  filtered_affirmations = $affirmations.select { |a| (a['category'] || a[:category]) == category }
   
   if filtered_affirmations.any?
     filtered_affirmations.to_json
@@ -89,8 +100,11 @@ end
 # Get all categories
 get '/affirmations/categories' do
   content_type :json
-  categories = $affirmations.map { |a| a[:category] }.uniq
-  { categories: categories }.to_json
+  categories = $affirmations.map { |a| a['category'] || a[:category] }.uniq.compact
+  { 
+    categories: categories,
+    total_categories: categories.length
+  }.to_json
 end
 
 # Get affirmation by ID
@@ -131,9 +145,9 @@ put '/affirmations/:id' do
   if affirmation
     data = JSON.parse(request.body.read)
     
-    affirmation[:text] = data['text'] if data['text']
-    affirmation[:category] = data['category'] if data['category']
-    affirmation[:author] = data['author'] if data['author']
+    affirmation['text'] = data['text'] if data['text']
+    affirmation['category'] = data['category'] if data['category']
+    affirmation['author'] = data['author'] if data['author']
     
     affirmation.to_json
   else
@@ -158,7 +172,11 @@ end
 # Health check endpoint
 get '/health' do
   content_type :json
-  { status: 'healthy', timestamp: Time.now.iso8601 }.to_json
+  { 
+    status: 'healthy', 
+    timestamp: Time.now.iso8601,
+    total_affirmations: $affirmations.length
+  }.to_json
 end
 
 # Error handling

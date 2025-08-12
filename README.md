@@ -1,14 +1,16 @@
 # Affirmations API
 
-A simple and lightweight API for managing positive affirmations, built with Sinatra and Ruby.
+A powerful and comprehensive API for managing positive affirmations, built with Sinatra and Ruby.
 
 ## Features
 
+- **500+ Affirmations**: Comprehensive collection of positive affirmations
 - **CRUD Operations**: Create, read, update, and delete affirmations
 - **Random Affirmations**: Get a random affirmation for daily inspiration
 - **Category Filtering**: Filter affirmations by category
 - **RESTful API**: Clean and intuitive REST endpoints
-- **In-Memory Storage**: Simple and fast, no database setup required
+- **JSON File Storage**: Loads affirmations from a structured JSON file
+- **In-Memory Processing**: Fast and efficient data handling
 - **JSON API**: All responses in JSON format
 
 ## Quick Start
@@ -31,8 +33,8 @@ A simple and lightweight API for managing positive affirmations, built with Sina
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/` | API information and available endpoints |
-| GET | `/health` | Health check endpoint |
-| GET | `/affirmations` | Get all affirmations |
+| GET | `/health` | Health check endpoint with affirmation count |
+| GET | `/affirmations` | Get all affirmations (500+) |
 | GET | `/affirmations/:id` | Get affirmation by ID |
 | GET | `/affirmations/random` | Get a random affirmation |
 | GET | `/affirmations/category/:category` | Get affirmations by category |
@@ -40,6 +42,22 @@ A simple and lightweight API for managing positive affirmations, built with Sina
 | POST | `/affirmations` | Create a new affirmation |
 | PUT | `/affirmations/:id` | Update an affirmation |
 | DELETE | `/affirmations/:id` | Delete an affirmation |
+
+## Available Categories
+
+The API includes affirmations across these categories:
+- **confidence-self-belief** - Building self-confidence and belief
+- **gratitude-abundance** - Appreciating life's blessings
+- **calm-peace** - Finding inner peace and tranquility
+- **motivation-forward-momentum** - Staying motivated and moving forward
+- **healing-resilience** - Overcoming challenges and healing
+- **self-love** - Loving and accepting yourself
+- **inner-strength** - Discovering your inner power
+- **presence** - Living in the present moment
+- **creativity** - Unleashing your creative potential
+- **compassion** - Showing kindness to yourself and others
+- **connection** - Building meaningful relationships
+- **universal-positivity** - Embracing life's positive aspects
 
 ## Usage Examples
 
@@ -53,6 +71,16 @@ curl http://localhost:4567/affirmations
 curl http://localhost:4567/affirmations/random
 ```
 
+### Get affirmations by category
+```bash
+curl http://localhost:4567/affirmations/category/confidence-self-belief
+```
+
+### Get all categories
+```bash
+curl http://localhost:4567/affirmations/categories
+```
+
 ### Create a new affirmation
 ```bash
 curl -X POST http://localhost:4567/affirmations \
@@ -64,19 +92,14 @@ curl -X POST http://localhost:4567/affirmations \
   }'
 ```
 
-### Get affirmations by category
-```bash
-curl http://localhost:4567/affirmations/category/motivation
-```
-
 ## Data Structure
 
 ### Affirmation Object
 ```json
 {
   "id": 1,
-  "text": "I am capable of achieving great things",
-  "category": "motivation",
+  "text": "I am enough.",
+  "category": "confidence-self-belief",
   "author": "Anonymous"
 }
 ```
@@ -90,24 +113,31 @@ curl http://localhost:4567/affirmations/category/motivation
 }
 ```
 
-## Sample Data
+## Data Source
 
-The API comes pre-loaded with 5 sample affirmations across different categories:
-- motivation
-- growth
-- confidence
-- potential
-- self-worth
+The API loads affirmations from `affirmations.json`, which contains:
+- **500+ carefully curated affirmations**
+- **12 different categories** covering various aspects of personal growth
+- **Professional quality content** suitable for daily use
+- **Consistent formatting** for easy integration
 
 ## Development
 
-This is a simple in-memory API perfect for:
-- Learning and testing
-- Prototyping
-- Small applications
-- Development environments
+This API is perfect for:
+- **Personal development apps**
+- **Wellness and meditation platforms**
+- **Daily motivation services**
+- **Mental health applications**
+- **Educational tools**
 
-For production use, consider adding persistent storage (database) and additional features like authentication.
+## Future Enhancements
+
+Consider adding:
+- **User accounts** and personal affirmation collections
+- **Favorite affirmations** functionality
+- **Search and filtering** capabilities
+- **Daily affirmation scheduling**
+- **Analytics and usage tracking**
 
 ## License
 
