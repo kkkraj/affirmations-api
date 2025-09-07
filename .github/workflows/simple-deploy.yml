@@ -1,0 +1,34 @@
+name: Simple Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+    
+    - name: Generate Static Site
+      run: |
+        python3 generate_static.py
+        echo "Generated files:"
+        ls -la docs/
+        echo "Index.html preview:"
+        head -20 docs/index.html
+    
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/
+        git diff --staged --quiet || git commit -m "Update static site [skip ci]"
+        git push
