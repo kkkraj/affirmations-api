@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Affirmations API</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .affirmation { 
+            background: rgba(255, 255, 255, 0.2); 
+            padding: 20px; 
+            margin: 15px 0; 
+            border-radius: 10px; 
+            border-left: 4px solid #ffd700;
+        }
+        .category { 
+            color: #ffd700; 
+            font-size: 0.9em; 
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .random-btn { 
+            background: #ff6b6b; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .random-btn:hover { 
+            background: #ff5252; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        h1 { text-align: center; margin-bottom: 30px; }
+        .stats { 
+            text-align: center; 
+            margin: 20px 0; 
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Affirmations API</h1>
+        <div class="stats">
+            <p>Welcome to your personal collection of <strong>500+ positive affirmations</strong>!</p>
+            <p>Get inspired, stay motivated, and build confidence every day.</p>
+        </div>
+        
+        <button class="random-btn" onclick="showRandom()">✨ Get Random Affirmation ✨</button>
+        
+        <div id="random-affirmation" class="affirmation" style="display:none;">
+            <div id="affirmation-text"></div>
+            <div id="affirmation-category" class="category"></div>
+        </div>
+        
+        <div id="sample-affirmations">
+            <h3>💫 Sample Affirmations</h3>
+            <div class="affirmation">
+                <div>I am enough.</div>
+                <div class="category">Category: confidence-self-belief</div>
+            </div>
+            <div class="affirmation">
+                <div>Every day is a new opportunity to grow.</div>
+                <div class="category">Category: growth</div>
+            </div>
+            <div class="affirmation">
+                <div>I choose to be confident and strong.</div>
+                <div class="category">Category: confidence</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load affirmations from the JSON file
+        fetch('affirmations.json')
+            .then(response => response.json())
+            .then(affirmations => {
+                window.affirmations = affirmations;
+                console.log('Loaded', affirmations.length, 'affirmations');
+            })
+            .catch(error => {
+                console.log('Using fallback affirmations');
+                window.affirmations = [
+                    {text: "I am enough.", category: "confidence-self-belief"},
+                    {text: "Every day is a new opportunity to grow.", category: "growth"},
+                    {text: "I choose to be confident and strong.", category: "confidence"},
+                    {text: "My potential is limitless.", category: "potential"},
+                    {text: "I am worthy of love and respect.", category: "self-worth"}
+                ];
+            });
+        
+        function showRandom() {
+            if (window.affirmations && window.affirmations.length > 0) {
+                const random = window.affirmations[Math.floor(Math.random() * window.affirmations.length)];
+                document.getElementById('affirmation-text').textContent = random.text;
+                document.getElementById('affirmation-category').textContent = `Category: ${random.category}`;
+                document.getElementById('random-affirmation').style.display = 'block';
+            } else {
+                alert('Affirmations are loading... Please try again in a moment.');
+            }
+        }
+    </script>
+</body>
+</html>
