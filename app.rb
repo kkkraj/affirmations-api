@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'json'
 
+# Configure port for deployment
+set :port, ENV['PORT'] || 4567
+set :bind, '0.0.0.0'
+
 # Load affirmations from JSON file
 def load_affirmations
   if File.exist?('affirmations.json')
