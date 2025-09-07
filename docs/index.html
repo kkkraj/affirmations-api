@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affirmations API</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .affirmation { background: #f0f8ff; padding: 20px; margin: 10px 0; border-radius: 8px; }
+        .category { color: #666; font-size: 0.9em; }
+        .random-btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .random-btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>🌟 Affirmations API</h1>
+    <p>Welcome to the Affirmations API! This static version contains 500 affirmations.</p>
+    
+    <button class="random-btn" onclick="showRandom()">Get Random Affirmation</button>
+    
+    <div id="random-affirmation" class="affirmation" style="display:none;">
+        <div id="affirmation-text"></div>
+        <div id="affirmation-category" class="category"></div>
+    </div>
+    
+    <h2>All Affirmations</h2>
+    <div id="all-affirmations">
+        
+        <div class="affirmation">
+            <div>I am enough.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am complete.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I believe in myself.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am worthy.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am comfortable being me.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust myself.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am proud of who I am.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I'm capable of so much.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I embrace my strengths.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am confident and strong.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I deserve all good things.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am smart.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I accept myself fully.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I only compare myself to myself.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>Today, I choose to be confident.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My day begins and ends with gratitude.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I am thankful for all the love in my life.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome miracles into my life.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Everything is a blessing.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I attract beautiful things into my life.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Amazing things are going to happen.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I see the good in everyone.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I feel abundance all around me.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I appreciate the present moment.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I give thanks for today.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I recognize the blessings in my life.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>My heart is calm.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am at peace.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am calm and relaxed.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am steady and serene.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I release worry and embrace peace.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am grounded in the present moment.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I take each hour one at a time.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am centered.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>With every breath, I feel stronger.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I release all anxiety and embrace calmness.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>My mind is clear and calm.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust that everything unfolds as it should.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am safe.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>This too shall pass.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I can do anything I set my mind to.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am limitless.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am growing every day.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>Every day is a fresh start.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I can get through anything.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I've got this.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>Today is going to be my day.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I push through with courage and strength.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I take success one step at a time.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am prepared to succeed.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>Healing is possible for me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am not my diagnosis.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My diagnosis will not define me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I can challenge negative thoughts with positive ones.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I treat myself with love and kindness.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My mental health challenges don't define who I am.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>Better mental health is possible for me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>This crisis will not define me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am strong enough to get through this.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I stay calm even in scary situations.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>There are people who will help me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am loved and supported.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I face anxiety with courage and strength.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My anxiety does not control me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am doing the work that works for me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am capable of balancing ease and effort in my life.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am allowed to ask for what I want and need.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>Changing my mind is a strength.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>Asking for help is self-respect.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am open to healing.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am lovable.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I fully approve of who I am.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I love myself completely.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am proud of myself.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I forgive myself and set myself free.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am beautiful and unique.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am entitled to take up space.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I love who I am.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I accept myself fully.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>My worth isn't based on how I look.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>My strength comes from within.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am resilient and strong.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>Nothing can break me.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I can get through anything.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>If I fall, I'll get back up.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am capable of achieving my goals.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am responsible for my happiness.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust myself.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I can handle anything that comes my way.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I rise stronger every time.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose to be present.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I am aware.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I live in the present moment.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I free myself to feel my emotions without judgment.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I take one hour at a time.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I make my dreams into reality.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I am grounded and centered.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>Today is a fresh start.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I appreciate the moment.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I breathe in peace and breathe out stress.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I am a creative being.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I sense creativity flowing through me.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I find beauty in everything.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am inventive in solving life's challenges.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I offer unique perspectives.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome new ideas.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I see possibilities everywhere.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I bring imagination into my life.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>My inner wisdom inspires creativity.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>My creativity enriches others.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I offer compassion to myself and others.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I am understanding of my feelings and actions.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I act with love, not fear.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I forgive easily.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I compassionately listen to my body.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I speak kindly about others.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I help others thrive.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I radiate kindness.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I nurture love in my words and deeds.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>Loving others is easy when I love myself.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I am surrounded in love.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I attract positive people.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I have meaningful, supportive relationships.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I enrich others' lives.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I am outgoing and approachable.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I connect with ease.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I learn from meeting new people.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I give and receive love equally.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I feel supported and supportive in return.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>My friendships are a gift.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I stand tall in my truth.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My voice matters.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I walk with purpose.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I shine naturally.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>Every challenge grows my confidence.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my inner compass.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My presence makes a difference.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I radiate self-assurance.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My confidence inspires others.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am secure in who I am.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I see gifts in each moment.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Gratitude fills my heart.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome abundance with joy.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I am thankful for small wonders.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Life offers me endless blessings.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>My gratitude attracts more to be grateful for.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I cherish the love I receive.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I focus on what's thriving.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I greet each day with thanks.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Abundance flows to me with ease.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>My breath guides me to peace.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose calm over chaos.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Serenity lives within me.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust the flow of life.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I let go of tension with each exhale.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am anchored in peace.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>My mind rests in stillness.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am gentle with my thoughts.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Peace surrounds and protects me.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Quiet moments refresh my soul.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I take bold steps forward.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>My actions create results.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>Every step moves me closer to my dreams.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I turn challenges into fuel.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am driven by purpose.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I move forward with determination.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>My energy builds my success.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I persist until I succeed.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I create opportunities daily.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am unstoppable in pursuit of my goals.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor my healing journey.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My past does not limit my future.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I grow stronger every day.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I allow myself to rest and recover.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My resilience is my superpower.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I embrace patience in my healing.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I release what no longer serves me.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My spirit cannot be broken.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my body and mind to heal.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>Healing happens at my own pace.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I treat myself with tenderness.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am worthy of joy.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I love the person I am becoming.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I speak kindly to myself.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose thoughts that lift me up.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I nurture my mind, body, and soul.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>My own love sustains me.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor my needs without guilt.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am enough exactly as I am.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>Loving myself comes naturally.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I rise with courage each day.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>My inner power is limitless.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I overcome fear with faith.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am stronger than my doubts.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I adapt and thrive.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>My spirit is unshakable.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I meet obstacles with strength.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose persistence over giving up.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I draw strength from my challenges.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am built for endurance.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I savor each heartbeat.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I listen deeply to life.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I fully engage with this moment.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I see beauty in now.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I pause and appreciate.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>The present moment is enough.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I give my full attention to what matters.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I find joy in simple things.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I let today be my focus.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I release distractions with ease.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>Inspiration finds me everywhere.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I create with joy.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>My ideas have value.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I explore without limits.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I play with possibilities.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my creative instincts.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>My creativity is endless.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I bring new visions to life.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I express myself freely.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>Every day is a chance to create.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I lead with empathy.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I see the humanity in everyone.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>Kindness costs me nothing and changes everything.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I offer patience to myself and others.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I forgive freely.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>My heart is open to understanding.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I respond with love in difficult moments.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I lift others without losing myself.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I show grace in my actions.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome others with warmth.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I belong wherever I am.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I connect with others from the heart.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>My presence is a gift to others.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I build bridges of understanding.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I value the bonds I share.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>My connections bring me joy.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I open myself to meaningful relationships.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor the people in my life.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I cultivate trust and respect.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I feel supported and understood.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my choices.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I inspire confidence in others.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I walk into every room with self-assurance.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My confidence grows with every experience.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am proud of my journey.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I carry myself with grace.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I believe in my vision.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I deserve to be seen and heard.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My self-belief is unshakable.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my own wisdom.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am grateful for this breath.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I notice the beauty around me.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I celebrate the good in my life.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>My heart overflows with appreciation.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I find blessings in unexpected places.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Gratitude shapes my perspective.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I am thankful for the lessons I've learned.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I value the people who uplift me.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I express gratitude freely.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Life gives me more to be grateful for each day.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>My calm is my power.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose peace even in uncertainty.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I carry stillness inside me.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>My thoughts are clear and gentle.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I release what I cannot control.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust the process of life.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Peace is my natural state.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I meet each moment with ease.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I let calmness lead my actions.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>My inner peace is unshakable.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I make progress every day.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I keep moving forward.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am focused and persistent.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I turn effort into achievement.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am dedicated to my dreams.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I rise and take action.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am capable of more than I imagine.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome challenges as growth opportunities.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>My determination fuels my success.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose progress over perfection.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust the timing of my healing.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I allow myself to feel and release.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My spirit is strong and whole.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor my body's wisdom.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I give myself permission to rest.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I learn and grow from every challenge.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My resilience lights my path.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust life's unfolding.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I heal in my own way and time.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am worthy of a fresh start.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am a friend to myself.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I embrace my quirks and uniqueness.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I protect my well-being.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose relationships that honor me.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I validate my own worth.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I listen to my inner needs.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I care for myself deeply.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am my own safe space.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I deserve kindness from myself.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I celebrate my own growth.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>My inner power carries me through.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I stand firm in my values.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I can weather any storm.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I rise to meet challenges.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am stronger than my fears.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my ability to endure.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>My courage shines through adversity.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I hold my ground with confidence.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am resilient in body and mind.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I face life with boldness.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am here, now.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I savor the details of today.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I release the past and future.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>This moment is my focus.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I let presence guide my actions.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I feel the richness of now.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I notice life's quiet gifts.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>My attention is a gift I give freely.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor the present with my awareness.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I live fully in this breath.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>My ideas have endless potential.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I create without fear.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I enjoy the process of creating.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my artistic instincts.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I see art in everyday life.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I allow inspiration to flow freely.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I turn visions into reality.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I bring beauty into the world.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>My creativity is a source of joy.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I embrace new ways of thinking.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I approach others with kindness.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I extend patience to myself and others.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I listen with empathy.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>My words uplift those around me.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I treat all beings with respect.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I see through the lens of love.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I respond to pain with understanding.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>My kindness makes a difference.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I bring light to others' lives.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>Compassion is my strength.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome meaningful connections.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I nurture relationships with care.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I give my time to those who matter.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I create safe spaces for others.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>My connections help me grow.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I find joy in shared moments.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I value open communication.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I share my heart with trust.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor the stories of others.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>My relationships are built on love.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I am comfortable in my own skin.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I speak my truth with ease.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I believe in my unique path.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am worthy of recognition.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I embrace my individuality.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I am bold in pursuing my dreams.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust myself to succeed.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>My self-belief guides my journey.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I hold my head high.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I back myself fully.</div>
+            <div class="category">Category: confidence-self-belief</div>
+        </div>
+        <div class="affirmation">
+            <div>I live in a state of appreciation.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I notice the good in every situation.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>My gratitude opens doors to joy.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I am blessed beyond measure.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I give thanks for what I have and what's coming.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor life's generosity.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I see abundance everywhere.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I am open to receiving blessings.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I celebrate the abundance in my life.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>Gratitude is my daily practice.</div>
+            <div class="category">Category: gratitude-abundance</div>
+        </div>
+        <div class="affirmation">
+            <div>I rest in a place of calm.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose stillness over stress.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Peace flows through me.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am calm in the face of change.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>My heart beats in peace.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I let go of mental clutter.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I find peace in nature.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Calmness strengthens me.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I am a source of peace for others.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>Peaceful thoughts guide my day.</div>
+            <div class="category">Category: calm-peace</div>
+        </div>
+        <div class="affirmation">
+            <div>I act with intention.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am disciplined and focused.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I commit to my goals.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I turn plans into reality.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am energized to take action.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I see challenges as stepping stones.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>My efforts bear fruit.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I create my own momentum.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am dedicated to my progress.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I always find a way forward.</div>
+            <div class="category">Category: motivation-forward-momentum</div>
+        </div>
+        <div class="affirmation">
+            <div>I am gentle with my recovery.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I release the need to rush my healing.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My challenges shape my strength.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my journey of renewal.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>Healing brings me peace.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome wholeness into my life.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I let light into the dark places.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>My scars tell a story of strength.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I am a survivor and a thriver.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor my healing with patience.</div>
+            <div class="category">Category: healing-resilience</div>
+        </div>
+        <div class="affirmation">
+            <div>I fill my own cup first.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I protect my energy.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I nourish my mind and body.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I value my own happiness.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I speak love into my life.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am gentle with my growth.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I celebrate who I am today.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I make time for myself.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust myself to care for me.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>My self-love is unconditional.</div>
+            <div class="category">Category: self-love</div>
+        </div>
+        <div class="affirmation">
+            <div>I am solid in who I am.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>My strength inspires others.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I handle difficulties with grace.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I stand tall through the storms.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I meet life with courage.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I can endure and overcome.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>My determination carries me forward.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I adapt and overcome challenges.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am unshaken by setbacks.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I am powerful and composed.</div>
+            <div class="category">Category: inner-strength</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome the now.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I slow down to notice life.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>The present moment is my home.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I bring mindfulness to all I do.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I am in tune with my surroundings.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I give this moment my full attention.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I am fully alive right now.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I breathe into this moment.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>I find joy in being here.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>Now is all I need.</div>
+            <div class="category">Category: presence</div>
+        </div>
+        <div class="affirmation">
+            <div>My creativity flows without limit.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I innovate with joy.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I let inspiration guide me.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I create beauty every day.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>My mind is a well of ideas.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust my creative voice.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I make space for imagination.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I express my creativity with freedom.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I bring originality to all I do.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am a vessel for inspiration.</div>
+            <div class="category">Category: creativity</div>
+        </div>
+        <div class="affirmation">
+            <div>I show love in action.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I care deeply for others.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>My empathy is a gift.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose kindness in all things.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I make others feel seen and valued.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I treat others how I wish to be treated.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I lift others with my words.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I respond with warmth.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I spread kindness freely.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I honor the feelings of others.</div>
+            <div class="category">Category: compassion</div>
+        </div>
+        <div class="affirmation">
+            <div>I cherish the people I love.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I am open to new friendships.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I grow through my relationships.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I give love without expecting anything in return.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I listen with an open heart.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>My relationships are built on trust.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I am grateful for my community.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I find connection in shared experiences.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I contribute positively to others' lives.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>I belong to a web of love and support.</div>
+            <div class="category">Category: connection</div>
+        </div>
+        <div class="affirmation">
+            <div>Life is good to me.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I see the good in the world.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>Joy is my natural state.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome happiness into my life.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose hope over fear.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am surrounded by beauty.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I focus on what's possible.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>Love and joy are all around me.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I greet each day with optimism.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>My life is filled with light.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am open to new adventures.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose laughter and joy.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am excited for what's ahead.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>My days are filled with meaning.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I see opportunity everywhere.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I radiate positivity.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I believe good things are coming.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I live in harmony with life.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>My heart is open to joy.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I expect the best in every situation.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I focus on what lifts me.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I spread joy wherever I go.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>Every day brings new blessings.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome love into my heart.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose to see the beauty in life.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am grateful for this journey.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I let happiness find me easily.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I invite peace and joy into my life.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I see life as a gift.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I welcome the magic of each day.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I choose to smile today.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I carry hope in my heart.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am open to miracles.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I enjoy life's simple pleasures.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>My soul is light and free.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I create my own joy.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I trust that life supports me.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I share my light with the world.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>Every day holds promise.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+        <div class="affirmation">
+            <div>I am grateful to be alive.</div>
+            <div class="category">Category: universal-positivity</div>
+        </div>
+    </div>
+    
+    <script>
+        const affirmations = [{"id": 1, "text": "I am enough.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 2, "text": "I am complete.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 3, "text": "I believe in myself.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 4, "text": "I am worthy.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 5, "text": "I am comfortable being me.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 6, "text": "I trust myself.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 7, "text": "I am proud of who I am.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 8, "text": "I'm capable of so much.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 9, "text": "I embrace my strengths.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 10, "text": "I am confident and strong.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 11, "text": "I deserve all good things.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 12, "text": "I am smart.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 13, "text": "I accept myself fully.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 14, "text": "I only compare myself to myself.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 15, "text": "Today, I choose to be confident.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 16, "text": "My day begins and ends with gratitude.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 17, "text": "I am thankful for all the love in my life.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 18, "text": "I welcome miracles into my life.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 19, "text": "Everything is a blessing.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 20, "text": "I attract beautiful things into my life.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 21, "text": "Amazing things are going to happen.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 22, "text": "I see the good in everyone.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 23, "text": "I feel abundance all around me.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 24, "text": "I appreciate the present moment.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 25, "text": "I give thanks for today.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 26, "text": "I recognize the blessings in my life.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 27, "text": "My heart is calm.", "category": "calm-peace", "author": "Anonymous"}, {"id": 28, "text": "I am at peace.", "category": "calm-peace", "author": "Anonymous"}, {"id": 29, "text": "I am calm and relaxed.", "category": "calm-peace", "author": "Anonymous"}, {"id": 30, "text": "I am steady and serene.", "category": "calm-peace", "author": "Anonymous"}, {"id": 31, "text": "I release worry and embrace peace.", "category": "calm-peace", "author": "Anonymous"}, {"id": 32, "text": "I am grounded in the present moment.", "category": "calm-peace", "author": "Anonymous"}, {"id": 33, "text": "I take each hour one at a time.", "category": "calm-peace", "author": "Anonymous"}, {"id": 34, "text": "I am centered.", "category": "calm-peace", "author": "Anonymous"}, {"id": 35, "text": "With every breath, I feel stronger.", "category": "calm-peace", "author": "Anonymous"}, {"id": 36, "text": "I release all anxiety and embrace calmness.", "category": "calm-peace", "author": "Anonymous"}, {"id": 37, "text": "My mind is clear and calm.", "category": "calm-peace", "author": "Anonymous"}, {"id": 38, "text": "I trust that everything unfolds as it should.", "category": "calm-peace", "author": "Anonymous"}, {"id": 39, "text": "I am safe.", "category": "calm-peace", "author": "Anonymous"}, {"id": 40, "text": "This too shall pass.", "category": "calm-peace", "author": "Anonymous"}, {"id": 41, "text": "I can do anything I set my mind to.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 42, "text": "I am limitless.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 43, "text": "I am growing every day.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 44, "text": "Every day is a fresh start.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 45, "text": "I can get through anything.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 46, "text": "I've got this.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 47, "text": "Today is going to be my day.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 48, "text": "I push through with courage and strength.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 49, "text": "I take success one step at a time.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 50, "text": "I am prepared to succeed.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 51, "text": "Healing is possible for me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 52, "text": "I am not my diagnosis.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 53, "text": "My diagnosis will not define me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 54, "text": "I can challenge negative thoughts with positive ones.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 55, "text": "I treat myself with love and kindness.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 56, "text": "My mental health challenges don't define who I am.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 57, "text": "Better mental health is possible for me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 58, "text": "This crisis will not define me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 59, "text": "I am strong enough to get through this.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 60, "text": "I stay calm even in scary situations.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 61, "text": "There are people who will help me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 62, "text": "I am loved and supported.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 63, "text": "I face anxiety with courage and strength.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 64, "text": "My anxiety does not control me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 65, "text": "I am doing the work that works for me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 66, "text": "I am capable of balancing ease and effort in my life.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 67, "text": "I am allowed to ask for what I want and need.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 68, "text": "Changing my mind is a strength.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 69, "text": "Asking for help is self-respect.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 70, "text": "I am open to healing.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 71, "text": "I am lovable.", "category": "self-love", "author": "Anonymous"}, {"id": 72, "text": "I fully approve of who I am.", "category": "self-love", "author": "Anonymous"}, {"id": 73, "text": "I love myself completely.", "category": "self-love", "author": "Anonymous"}, {"id": 74, "text": "I am proud of myself.", "category": "self-love", "author": "Anonymous"}, {"id": 75, "text": "I forgive myself and set myself free.", "category": "self-love", "author": "Anonymous"}, {"id": 76, "text": "I am beautiful and unique.", "category": "self-love", "author": "Anonymous"}, {"id": 77, "text": "I am entitled to take up space.", "category": "self-love", "author": "Anonymous"}, {"id": 78, "text": "I love who I am.", "category": "self-love", "author": "Anonymous"}, {"id": 79, "text": "I accept myself fully.", "category": "self-love", "author": "Anonymous"}, {"id": 80, "text": "My worth isn't based on how I look.", "category": "self-love", "author": "Anonymous"}, {"id": 81, "text": "My strength comes from within.", "category": "inner-strength", "author": "Anonymous"}, {"id": 82, "text": "I am resilient and strong.", "category": "inner-strength", "author": "Anonymous"}, {"id": 83, "text": "Nothing can break me.", "category": "inner-strength", "author": "Anonymous"}, {"id": 84, "text": "I can get through anything.", "category": "inner-strength", "author": "Anonymous"}, {"id": 85, "text": "If I fall, I'll get back up.", "category": "inner-strength", "author": "Anonymous"}, {"id": 86, "text": "I am capable of achieving my goals.", "category": "inner-strength", "author": "Anonymous"}, {"id": 87, "text": "I am responsible for my happiness.", "category": "inner-strength", "author": "Anonymous"}, {"id": 88, "text": "I trust myself.", "category": "inner-strength", "author": "Anonymous"}, {"id": 89, "text": "I can handle anything that comes my way.", "category": "inner-strength", "author": "Anonymous"}, {"id": 90, "text": "I rise stronger every time.", "category": "inner-strength", "author": "Anonymous"}, {"id": 91, "text": "I choose to be present.", "category": "presence", "author": "Anonymous"}, {"id": 92, "text": "I am aware.", "category": "presence", "author": "Anonymous"}, {"id": 93, "text": "I live in the present moment.", "category": "presence", "author": "Anonymous"}, {"id": 94, "text": "I free myself to feel my emotions without judgment.", "category": "presence", "author": "Anonymous"}, {"id": 95, "text": "I take one hour at a time.", "category": "presence", "author": "Anonymous"}, {"id": 96, "text": "I make my dreams into reality.", "category": "presence", "author": "Anonymous"}, {"id": 97, "text": "I am grounded and centered.", "category": "presence", "author": "Anonymous"}, {"id": 98, "text": "Today is a fresh start.", "category": "presence", "author": "Anonymous"}, {"id": 99, "text": "I appreciate the moment.", "category": "presence", "author": "Anonymous"}, {"id": 100, "text": "I breathe in peace and breathe out stress.", "category": "presence", "author": "Anonymous"}, {"id": 101, "text": "I am a creative being.", "category": "creativity", "author": "Anonymous"}, {"id": 102, "text": "I sense creativity flowing through me.", "category": "creativity", "author": "Anonymous"}, {"id": 103, "text": "I find beauty in everything.", "category": "creativity", "author": "Anonymous"}, {"id": 104, "text": "I am inventive in solving life's challenges.", "category": "creativity", "author": "Anonymous"}, {"id": 105, "text": "I offer unique perspectives.", "category": "creativity", "author": "Anonymous"}, {"id": 106, "text": "I welcome new ideas.", "category": "creativity", "author": "Anonymous"}, {"id": 107, "text": "I see possibilities everywhere.", "category": "creativity", "author": "Anonymous"}, {"id": 108, "text": "I bring imagination into my life.", "category": "creativity", "author": "Anonymous"}, {"id": 109, "text": "My inner wisdom inspires creativity.", "category": "creativity", "author": "Anonymous"}, {"id": 110, "text": "My creativity enriches others.", "category": "creativity", "author": "Anonymous"}, {"id": 111, "text": "I offer compassion to myself and others.", "category": "compassion", "author": "Anonymous"}, {"id": 112, "text": "I am understanding of my feelings and actions.", "category": "compassion", "author": "Anonymous"}, {"id": 113, "text": "I act with love, not fear.", "category": "compassion", "author": "Anonymous"}, {"id": 114, "text": "I forgive easily.", "category": "compassion", "author": "Anonymous"}, {"id": 115, "text": "I compassionately listen to my body.", "category": "compassion", "author": "Anonymous"}, {"id": 116, "text": "I speak kindly about others.", "category": "compassion", "author": "Anonymous"}, {"id": 117, "text": "I help others thrive.", "category": "compassion", "author": "Anonymous"}, {"id": 118, "text": "I radiate kindness.", "category": "compassion", "author": "Anonymous"}, {"id": 119, "text": "I nurture love in my words and deeds.", "category": "compassion", "author": "Anonymous"}, {"id": 120, "text": "Loving others is easy when I love myself.", "category": "compassion", "author": "Anonymous"}, {"id": 121, "text": "I am surrounded in love.", "category": "connection", "author": "Anonymous"}, {"id": 122, "text": "I attract positive people.", "category": "connection", "author": "Anonymous"}, {"id": 123, "text": "I have meaningful, supportive relationships.", "category": "connection", "author": "Anonymous"}, {"id": 124, "text": "I enrich others' lives.", "category": "connection", "author": "Anonymous"}, {"id": 125, "text": "I am outgoing and approachable.", "category": "connection", "author": "Anonymous"}, {"id": 126, "text": "I connect with ease.", "category": "connection", "author": "Anonymous"}, {"id": 127, "text": "I learn from meeting new people.", "category": "connection", "author": "Anonymous"}, {"id": 128, "text": "I give and receive love equally.", "category": "connection", "author": "Anonymous"}, {"id": 129, "text": "I feel supported and supportive in return.", "category": "connection", "author": "Anonymous"}, {"id": 130, "text": "My friendships are a gift.", "category": "connection", "author": "Anonymous"}, {"id": 131, "text": "I stand tall in my truth.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 132, "text": "My voice matters.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 133, "text": "I walk with purpose.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 134, "text": "I shine naturally.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 135, "text": "Every challenge grows my confidence.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 136, "text": "I trust my inner compass.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 137, "text": "My presence makes a difference.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 138, "text": "I radiate self-assurance.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 139, "text": "My confidence inspires others.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 140, "text": "I am secure in who I am.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 141, "text": "I see gifts in each moment.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 142, "text": "Gratitude fills my heart.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 143, "text": "I welcome abundance with joy.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 144, "text": "I am thankful for small wonders.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 145, "text": "Life offers me endless blessings.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 146, "text": "My gratitude attracts more to be grateful for.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 147, "text": "I cherish the love I receive.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 148, "text": "I focus on what's thriving.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 149, "text": "I greet each day with thanks.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 150, "text": "Abundance flows to me with ease.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 151, "text": "My breath guides me to peace.", "category": "calm-peace", "author": "Anonymous"}, {"id": 152, "text": "I choose calm over chaos.", "category": "calm-peace", "author": "Anonymous"}, {"id": 153, "text": "Serenity lives within me.", "category": "calm-peace", "author": "Anonymous"}, {"id": 154, "text": "I trust the flow of life.", "category": "calm-peace", "author": "Anonymous"}, {"id": 155, "text": "I let go of tension with each exhale.", "category": "calm-peace", "author": "Anonymous"}, {"id": 156, "text": "I am anchored in peace.", "category": "calm-peace", "author": "Anonymous"}, {"id": 157, "text": "My mind rests in stillness.", "category": "calm-peace", "author": "Anonymous"}, {"id": 158, "text": "I am gentle with my thoughts.", "category": "calm-peace", "author": "Anonymous"}, {"id": 159, "text": "Peace surrounds and protects me.", "category": "calm-peace", "author": "Anonymous"}, {"id": 160, "text": "Quiet moments refresh my soul.", "category": "calm-peace", "author": "Anonymous"}, {"id": 161, "text": "I take bold steps forward.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 162, "text": "My actions create results.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 163, "text": "Every step moves me closer to my dreams.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 164, "text": "I turn challenges into fuel.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 165, "text": "I am driven by purpose.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 166, "text": "I move forward with determination.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 167, "text": "My energy builds my success.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 168, "text": "I persist until I succeed.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 169, "text": "I create opportunities daily.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 170, "text": "I am unstoppable in pursuit of my goals.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 171, "text": "I honor my healing journey.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 172, "text": "My past does not limit my future.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 173, "text": "I grow stronger every day.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 174, "text": "I allow myself to rest and recover.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 175, "text": "My resilience is my superpower.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 176, "text": "I embrace patience in my healing.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 177, "text": "I release what no longer serves me.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 178, "text": "My spirit cannot be broken.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 179, "text": "I trust my body and mind to heal.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 180, "text": "Healing happens at my own pace.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 181, "text": "I treat myself with tenderness.", "category": "self-love", "author": "Anonymous"}, {"id": 182, "text": "I am worthy of joy.", "category": "self-love", "author": "Anonymous"}, {"id": 183, "text": "I love the person I am becoming.", "category": "self-love", "author": "Anonymous"}, {"id": 184, "text": "I speak kindly to myself.", "category": "self-love", "author": "Anonymous"}, {"id": 185, "text": "I choose thoughts that lift me up.", "category": "self-love", "author": "Anonymous"}, {"id": 186, "text": "I nurture my mind, body, and soul.", "category": "self-love", "author": "Anonymous"}, {"id": 187, "text": "My own love sustains me.", "category": "self-love", "author": "Anonymous"}, {"id": 188, "text": "I honor my needs without guilt.", "category": "self-love", "author": "Anonymous"}, {"id": 189, "text": "I am enough exactly as I am.", "category": "self-love", "author": "Anonymous"}, {"id": 190, "text": "Loving myself comes naturally.", "category": "self-love", "author": "Anonymous"}, {"id": 191, "text": "I rise with courage each day.", "category": "inner-strength", "author": "Anonymous"}, {"id": 192, "text": "My inner power is limitless.", "category": "inner-strength", "author": "Anonymous"}, {"id": 193, "text": "I overcome fear with faith.", "category": "inner-strength", "author": "Anonymous"}, {"id": 194, "text": "I am stronger than my doubts.", "category": "inner-strength", "author": "Anonymous"}, {"id": 195, "text": "I adapt and thrive.", "category": "inner-strength", "author": "Anonymous"}, {"id": 196, "text": "My spirit is unshakable.", "category": "inner-strength", "author": "Anonymous"}, {"id": 197, "text": "I meet obstacles with strength.", "category": "inner-strength", "author": "Anonymous"}, {"id": 198, "text": "I choose persistence over giving up.", "category": "inner-strength", "author": "Anonymous"}, {"id": 199, "text": "I draw strength from my challenges.", "category": "inner-strength", "author": "Anonymous"}, {"id": 200, "text": "I am built for endurance.", "category": "inner-strength", "author": "Anonymous"}, {"id": 201, "text": "I savor each heartbeat.", "category": "presence", "author": "Anonymous"}, {"id": 202, "text": "I listen deeply to life.", "category": "presence", "author": "Anonymous"}, {"id": 203, "text": "I fully engage with this moment.", "category": "presence", "author": "Anonymous"}, {"id": 204, "text": "I see beauty in now.", "category": "presence", "author": "Anonymous"}, {"id": 205, "text": "I pause and appreciate.", "category": "presence", "author": "Anonymous"}, {"id": 206, "text": "The present moment is enough.", "category": "presence", "author": "Anonymous"}, {"id": 207, "text": "I give my full attention to what matters.", "category": "presence", "author": "Anonymous"}, {"id": 208, "text": "I find joy in simple things.", "category": "presence", "author": "Anonymous"}, {"id": 209, "text": "I let today be my focus.", "category": "presence", "author": "Anonymous"}, {"id": 210, "text": "I release distractions with ease.", "category": "presence", "author": "Anonymous"}, {"id": 211, "text": "Inspiration finds me everywhere.", "category": "creativity", "author": "Anonymous"}, {"id": 212, "text": "I create with joy.", "category": "creativity", "author": "Anonymous"}, {"id": 213, "text": "My ideas have value.", "category": "creativity", "author": "Anonymous"}, {"id": 214, "text": "I explore without limits.", "category": "creativity", "author": "Anonymous"}, {"id": 215, "text": "I play with possibilities.", "category": "creativity", "author": "Anonymous"}, {"id": 216, "text": "I trust my creative instincts.", "category": "creativity", "author": "Anonymous"}, {"id": 217, "text": "My creativity is endless.", "category": "creativity", "author": "Anonymous"}, {"id": 218, "text": "I bring new visions to life.", "category": "creativity", "author": "Anonymous"}, {"id": 219, "text": "I express myself freely.", "category": "creativity", "author": "Anonymous"}, {"id": 220, "text": "Every day is a chance to create.", "category": "creativity", "author": "Anonymous"}, {"id": 221, "text": "I lead with empathy.", "category": "compassion", "author": "Anonymous"}, {"id": 222, "text": "I see the humanity in everyone.", "category": "compassion", "author": "Anonymous"}, {"id": 223, "text": "Kindness costs me nothing and changes everything.", "category": "compassion", "author": "Anonymous"}, {"id": 224, "text": "I offer patience to myself and others.", "category": "compassion", "author": "Anonymous"}, {"id": 225, "text": "I forgive freely.", "category": "compassion", "author": "Anonymous"}, {"id": 226, "text": "My heart is open to understanding.", "category": "compassion", "author": "Anonymous"}, {"id": 227, "text": "I respond with love in difficult moments.", "category": "compassion", "author": "Anonymous"}, {"id": 228, "text": "I lift others without losing myself.", "category": "compassion", "author": "Anonymous"}, {"id": 229, "text": "I show grace in my actions.", "category": "compassion", "author": "Anonymous"}, {"id": 230, "text": "I welcome others with warmth.", "category": "compassion", "author": "Anonymous"}, {"id": 231, "text": "I belong wherever I am.", "category": "connection", "author": "Anonymous"}, {"id": 232, "text": "I connect with others from the heart.", "category": "connection", "author": "Anonymous"}, {"id": 233, "text": "My presence is a gift to others.", "category": "connection", "author": "Anonymous"}, {"id": 234, "text": "I build bridges of understanding.", "category": "connection", "author": "Anonymous"}, {"id": 235, "text": "I value the bonds I share.", "category": "connection", "author": "Anonymous"}, {"id": 236, "text": "My connections bring me joy.", "category": "connection", "author": "Anonymous"}, {"id": 237, "text": "I open myself to meaningful relationships.", "category": "connection", "author": "Anonymous"}, {"id": 238, "text": "I honor the people in my life.", "category": "connection", "author": "Anonymous"}, {"id": 239, "text": "I cultivate trust and respect.", "category": "connection", "author": "Anonymous"}, {"id": 240, "text": "I feel supported and understood.", "category": "connection", "author": "Anonymous"}, {"id": 241, "text": "I trust my choices.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 242, "text": "I inspire confidence in others.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 243, "text": "I walk into every room with self-assurance.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 244, "text": "My confidence grows with every experience.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 245, "text": "I am proud of my journey.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 246, "text": "I carry myself with grace.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 247, "text": "I believe in my vision.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 248, "text": "I deserve to be seen and heard.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 249, "text": "My self-belief is unshakable.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 250, "text": "I trust my own wisdom.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 251, "text": "I am grateful for this breath.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 252, "text": "I notice the beauty around me.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 253, "text": "I celebrate the good in my life.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 254, "text": "My heart overflows with appreciation.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 255, "text": "I find blessings in unexpected places.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 256, "text": "Gratitude shapes my perspective.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 257, "text": "I am thankful for the lessons I've learned.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 258, "text": "I value the people who uplift me.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 259, "text": "I express gratitude freely.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 260, "text": "Life gives me more to be grateful for each day.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 261, "text": "My calm is my power.", "category": "calm-peace", "author": "Anonymous"}, {"id": 262, "text": "I choose peace even in uncertainty.", "category": "calm-peace", "author": "Anonymous"}, {"id": 263, "text": "I carry stillness inside me.", "category": "calm-peace", "author": "Anonymous"}, {"id": 264, "text": "My thoughts are clear and gentle.", "category": "calm-peace", "author": "Anonymous"}, {"id": 265, "text": "I release what I cannot control.", "category": "calm-peace", "author": "Anonymous"}, {"id": 266, "text": "I trust the process of life.", "category": "calm-peace", "author": "Anonymous"}, {"id": 267, "text": "Peace is my natural state.", "category": "calm-peace", "author": "Anonymous"}, {"id": 268, "text": "I meet each moment with ease.", "category": "calm-peace", "author": "Anonymous"}, {"id": 269, "text": "I let calmness lead my actions.", "category": "calm-peace", "author": "Anonymous"}, {"id": 270, "text": "My inner peace is unshakable.", "category": "calm-peace", "author": "Anonymous"}, {"id": 271, "text": "I make progress every day.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 272, "text": "I keep moving forward.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 273, "text": "I am focused and persistent.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 274, "text": "I turn effort into achievement.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 275, "text": "I am dedicated to my dreams.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 276, "text": "I rise and take action.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 277, "text": "I am capable of more than I imagine.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 278, "text": "I welcome challenges as growth opportunities.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 279, "text": "My determination fuels my success.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 280, "text": "I choose progress over perfection.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 281, "text": "I trust the timing of my healing.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 282, "text": "I allow myself to feel and release.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 283, "text": "My spirit is strong and whole.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 284, "text": "I honor my body's wisdom.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 285, "text": "I give myself permission to rest.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 286, "text": "I learn and grow from every challenge.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 287, "text": "My resilience lights my path.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 288, "text": "I trust life's unfolding.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 289, "text": "I heal in my own way and time.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 290, "text": "I am worthy of a fresh start.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 291, "text": "I am a friend to myself.", "category": "self-love", "author": "Anonymous"}, {"id": 292, "text": "I embrace my quirks and uniqueness.", "category": "self-love", "author": "Anonymous"}, {"id": 293, "text": "I protect my well-being.", "category": "self-love", "author": "Anonymous"}, {"id": 294, "text": "I choose relationships that honor me.", "category": "self-love", "author": "Anonymous"}, {"id": 295, "text": "I validate my own worth.", "category": "self-love", "author": "Anonymous"}, {"id": 296, "text": "I listen to my inner needs.", "category": "self-love", "author": "Anonymous"}, {"id": 297, "text": "I care for myself deeply.", "category": "self-love", "author": "Anonymous"}, {"id": 298, "text": "I am my own safe space.", "category": "self-love", "author": "Anonymous"}, {"id": 299, "text": "I deserve kindness from myself.", "category": "self-love", "author": "Anonymous"}, {"id": 300, "text": "I celebrate my own growth.", "category": "self-love", "author": "Anonymous"}, {"id": 301, "text": "My inner power carries me through.", "category": "inner-strength", "author": "Anonymous"}, {"id": 302, "text": "I stand firm in my values.", "category": "inner-strength", "author": "Anonymous"}, {"id": 303, "text": "I can weather any storm.", "category": "inner-strength", "author": "Anonymous"}, {"id": 304, "text": "I rise to meet challenges.", "category": "inner-strength", "author": "Anonymous"}, {"id": 305, "text": "I am stronger than my fears.", "category": "inner-strength", "author": "Anonymous"}, {"id": 306, "text": "I trust my ability to endure.", "category": "inner-strength", "author": "Anonymous"}, {"id": 307, "text": "My courage shines through adversity.", "category": "inner-strength", "author": "Anonymous"}, {"id": 308, "text": "I hold my ground with confidence.", "category": "inner-strength", "author": "Anonymous"}, {"id": 309, "text": "I am resilient in body and mind.", "category": "inner-strength", "author": "Anonymous"}, {"id": 310, "text": "I face life with boldness.", "category": "inner-strength", "author": "Anonymous"}, {"id": 311, "text": "I am here, now.", "category": "presence", "author": "Anonymous"}, {"id": 312, "text": "I savor the details of today.", "category": "presence", "author": "Anonymous"}, {"id": 313, "text": "I release the past and future.", "category": "presence", "author": "Anonymous"}, {"id": 314, "text": "This moment is my focus.", "category": "presence", "author": "Anonymous"}, {"id": 315, "text": "I let presence guide my actions.", "category": "presence", "author": "Anonymous"}, {"id": 316, "text": "I feel the richness of now.", "category": "presence", "author": "Anonymous"}, {"id": 317, "text": "I notice life's quiet gifts.", "category": "presence", "author": "Anonymous"}, {"id": 318, "text": "My attention is a gift I give freely.", "category": "presence", "author": "Anonymous"}, {"id": 319, "text": "I honor the present with my awareness.", "category": "presence", "author": "Anonymous"}, {"id": 320, "text": "I live fully in this breath.", "category": "presence", "author": "Anonymous"}, {"id": 321, "text": "My ideas have endless potential.", "category": "creativity", "author": "Anonymous"}, {"id": 322, "text": "I create without fear.", "category": "creativity", "author": "Anonymous"}, {"id": 323, "text": "I enjoy the process of creating.", "category": "creativity", "author": "Anonymous"}, {"id": 324, "text": "I trust my artistic instincts.", "category": "creativity", "author": "Anonymous"}, {"id": 325, "text": "I see art in everyday life.", "category": "creativity", "author": "Anonymous"}, {"id": 326, "text": "I allow inspiration to flow freely.", "category": "creativity", "author": "Anonymous"}, {"id": 327, "text": "I turn visions into reality.", "category": "creativity", "author": "Anonymous"}, {"id": 328, "text": "I bring beauty into the world.", "category": "creativity", "author": "Anonymous"}, {"id": 329, "text": "My creativity is a source of joy.", "category": "creativity", "author": "Anonymous"}, {"id": 330, "text": "I embrace new ways of thinking.", "category": "creativity", "author": "Anonymous"}, {"id": 331, "text": "I approach others with kindness.", "category": "compassion", "author": "Anonymous"}, {"id": 332, "text": "I extend patience to myself and others.", "category": "compassion", "author": "Anonymous"}, {"id": 333, "text": "I listen with empathy.", "category": "compassion", "author": "Anonymous"}, {"id": 334, "text": "My words uplift those around me.", "category": "compassion", "author": "Anonymous"}, {"id": 335, "text": "I treat all beings with respect.", "category": "compassion", "author": "Anonymous"}, {"id": 336, "text": "I see through the lens of love.", "category": "compassion", "author": "Anonymous"}, {"id": 337, "text": "I respond to pain with understanding.", "category": "compassion", "author": "Anonymous"}, {"id": 338, "text": "My kindness makes a difference.", "category": "compassion", "author": "Anonymous"}, {"id": 339, "text": "I bring light to others' lives.", "category": "compassion", "author": "Anonymous"}, {"id": 340, "text": "Compassion is my strength.", "category": "compassion", "author": "Anonymous"}, {"id": 341, "text": "I welcome meaningful connections.", "category": "connection", "author": "Anonymous"}, {"id": 342, "text": "I nurture relationships with care.", "category": "connection", "author": "Anonymous"}, {"id": 343, "text": "I give my time to those who matter.", "category": "connection", "author": "Anonymous"}, {"id": 344, "text": "I create safe spaces for others.", "category": "connection", "author": "Anonymous"}, {"id": 345, "text": "My connections help me grow.", "category": "connection", "author": "Anonymous"}, {"id": 346, "text": "I find joy in shared moments.", "category": "connection", "author": "Anonymous"}, {"id": 347, "text": "I value open communication.", "category": "connection", "author": "Anonymous"}, {"id": 348, "text": "I share my heart with trust.", "category": "connection", "author": "Anonymous"}, {"id": 349, "text": "I honor the stories of others.", "category": "connection", "author": "Anonymous"}, {"id": 350, "text": "My relationships are built on love.", "category": "connection", "author": "Anonymous"}, {"id": 351, "text": "I am comfortable in my own skin.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 352, "text": "I speak my truth with ease.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 353, "text": "I believe in my unique path.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 354, "text": "I am worthy of recognition.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 355, "text": "I embrace my individuality.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 356, "text": "I am bold in pursuing my dreams.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 357, "text": "I trust myself to succeed.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 358, "text": "My self-belief guides my journey.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 359, "text": "I hold my head high.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 360, "text": "I back myself fully.", "category": "confidence-self-belief", "author": "Anonymous"}, {"id": 361, "text": "I live in a state of appreciation.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 362, "text": "I notice the good in every situation.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 363, "text": "My gratitude opens doors to joy.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 364, "text": "I am blessed beyond measure.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 365, "text": "I give thanks for what I have and what's coming.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 366, "text": "I honor life's generosity.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 367, "text": "I see abundance everywhere.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 368, "text": "I am open to receiving blessings.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 369, "text": "I celebrate the abundance in my life.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 370, "text": "Gratitude is my daily practice.", "category": "gratitude-abundance", "author": "Anonymous"}, {"id": 371, "text": "I rest in a place of calm.", "category": "calm-peace", "author": "Anonymous"}, {"id": 372, "text": "I choose stillness over stress.", "category": "calm-peace", "author": "Anonymous"}, {"id": 373, "text": "Peace flows through me.", "category": "calm-peace", "author": "Anonymous"}, {"id": 374, "text": "I am calm in the face of change.", "category": "calm-peace", "author": "Anonymous"}, {"id": 375, "text": "My heart beats in peace.", "category": "calm-peace", "author": "Anonymous"}, {"id": 376, "text": "I let go of mental clutter.", "category": "calm-peace", "author": "Anonymous"}, {"id": 377, "text": "I find peace in nature.", "category": "calm-peace", "author": "Anonymous"}, {"id": 378, "text": "Calmness strengthens me.", "category": "calm-peace", "author": "Anonymous"}, {"id": 379, "text": "I am a source of peace for others.", "category": "calm-peace", "author": "Anonymous"}, {"id": 380, "text": "Peaceful thoughts guide my day.", "category": "calm-peace", "author": "Anonymous"}, {"id": 381, "text": "I act with intention.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 382, "text": "I am disciplined and focused.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 383, "text": "I commit to my goals.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 384, "text": "I turn plans into reality.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 385, "text": "I am energized to take action.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 386, "text": "I see challenges as stepping stones.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 387, "text": "My efforts bear fruit.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 388, "text": "I create my own momentum.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 389, "text": "I am dedicated to my progress.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 390, "text": "I always find a way forward.", "category": "motivation-forward-momentum", "author": "Anonymous"}, {"id": 391, "text": "I am gentle with my recovery.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 392, "text": "I release the need to rush my healing.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 393, "text": "My challenges shape my strength.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 394, "text": "I trust my journey of renewal.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 395, "text": "Healing brings me peace.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 396, "text": "I welcome wholeness into my life.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 397, "text": "I let light into the dark places.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 398, "text": "My scars tell a story of strength.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 399, "text": "I am a survivor and a thriver.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 400, "text": "I honor my healing with patience.", "category": "healing-resilience", "author": "Anonymous"}, {"id": 401, "text": "I fill my own cup first.", "category": "self-love", "author": "Anonymous"}, {"id": 402, "text": "I protect my energy.", "category": "self-love", "author": "Anonymous"}, {"id": 403, "text": "I nourish my mind and body.", "category": "self-love", "author": "Anonymous"}, {"id": 404, "text": "I value my own happiness.", "category": "self-love", "author": "Anonymous"}, {"id": 405, "text": "I speak love into my life.", "category": "self-love", "author": "Anonymous"}, {"id": 406, "text": "I am gentle with my growth.", "category": "self-love", "author": "Anonymous"}, {"id": 407, "text": "I celebrate who I am today.", "category": "self-love", "author": "Anonymous"}, {"id": 408, "text": "I make time for myself.", "category": "self-love", "author": "Anonymous"}, {"id": 409, "text": "I trust myself to care for me.", "category": "self-love", "author": "Anonymous"}, {"id": 410, "text": "My self-love is unconditional.", "category": "self-love", "author": "Anonymous"}, {"id": 411, "text": "I am solid in who I am.", "category": "inner-strength", "author": "Anonymous"}, {"id": 412, "text": "My strength inspires others.", "category": "inner-strength", "author": "Anonymous"}, {"id": 413, "text": "I handle difficulties with grace.", "category": "inner-strength", "author": "Anonymous"}, {"id": 414, "text": "I stand tall through the storms.", "category": "inner-strength", "author": "Anonymous"}, {"id": 415, "text": "I meet life with courage.", "category": "inner-strength", "author": "Anonymous"}, {"id": 416, "text": "I can endure and overcome.", "category": "inner-strength", "author": "Anonymous"}, {"id": 417, "text": "My determination carries me forward.", "category": "inner-strength", "author": "Anonymous"}, {"id": 418, "text": "I adapt and overcome challenges.", "category": "inner-strength", "author": "Anonymous"}, {"id": 419, "text": "I am unshaken by setbacks.", "category": "inner-strength", "author": "Anonymous"}, {"id": 420, "text": "I am powerful and composed.", "category": "inner-strength", "author": "Anonymous"}, {"id": 421, "text": "I welcome the now.", "category": "presence", "author": "Anonymous"}, {"id": 422, "text": "I slow down to notice life.", "category": "presence", "author": "Anonymous"}, {"id": 423, "text": "The present moment is my home.", "category": "presence", "author": "Anonymous"}, {"id": 424, "text": "I bring mindfulness to all I do.", "category": "presence", "author": "Anonymous"}, {"id": 425, "text": "I am in tune with my surroundings.", "category": "presence", "author": "Anonymous"}, {"id": 426, "text": "I give this moment my full attention.", "category": "presence", "author": "Anonymous"}, {"id": 427, "text": "I am fully alive right now.", "category": "presence", "author": "Anonymous"}, {"id": 428, "text": "I breathe into this moment.", "category": "presence", "author": "Anonymous"}, {"id": 429, "text": "I find joy in being here.", "category": "presence", "author": "Anonymous"}, {"id": 430, "text": "Now is all I need.", "category": "presence", "author": "Anonymous"}, {"id": 431, "text": "My creativity flows without limit.", "category": "creativity", "author": "Anonymous"}, {"id": 432, "text": "I innovate with joy.", "category": "creativity", "author": "Anonymous"}, {"id": 433, "text": "I let inspiration guide me.", "category": "creativity", "author": "Anonymous"}, {"id": 434, "text": "I create beauty every day.", "category": "creativity", "author": "Anonymous"}, {"id": 435, "text": "My mind is a well of ideas.", "category": "creativity", "author": "Anonymous"}, {"id": 436, "text": "I trust my creative voice.", "category": "creativity", "author": "Anonymous"}, {"id": 437, "text": "I make space for imagination.", "category": "creativity", "author": "Anonymous"}, {"id": 438, "text": "I express my creativity with freedom.", "category": "creativity", "author": "Anonymous"}, {"id": 439, "text": "I bring originality to all I do.", "category": "creativity", "author": "Anonymous"}, {"id": 440, "text": "I am a vessel for inspiration.", "category": "creativity", "author": "Anonymous"}, {"id": 441, "text": "I show love in action.", "category": "compassion", "author": "Anonymous"}, {"id": 442, "text": "I care deeply for others.", "category": "compassion", "author": "Anonymous"}, {"id": 443, "text": "My empathy is a gift.", "category": "compassion", "author": "Anonymous"}, {"id": 444, "text": "I choose kindness in all things.", "category": "compassion", "author": "Anonymous"}, {"id": 445, "text": "I make others feel seen and valued.", "category": "compassion", "author": "Anonymous"}, {"id": 446, "text": "I treat others how I wish to be treated.", "category": "compassion", "author": "Anonymous"}, {"id": 447, "text": "I lift others with my words.", "category": "compassion", "author": "Anonymous"}, {"id": 448, "text": "I respond with warmth.", "category": "compassion", "author": "Anonymous"}, {"id": 449, "text": "I spread kindness freely.", "category": "compassion", "author": "Anonymous"}, {"id": 450, "text": "I honor the feelings of others.", "category": "compassion", "author": "Anonymous"}, {"id": 451, "text": "I cherish the people I love.", "category": "connection", "author": "Anonymous"}, {"id": 452, "text": "I am open to new friendships.", "category": "connection", "author": "Anonymous"}, {"id": 453, "text": "I grow through my relationships.", "category": "connection", "author": "Anonymous"}, {"id": 454, "text": "I give love without expecting anything in return.", "category": "connection", "author": "Anonymous"}, {"id": 455, "text": "I listen with an open heart.", "category": "connection", "author": "Anonymous"}, {"id": 456, "text": "My relationships are built on trust.", "category": "connection", "author": "Anonymous"}, {"id": 457, "text": "I am grateful for my community.", "category": "connection", "author": "Anonymous"}, {"id": 458, "text": "I find connection in shared experiences.", "category": "connection", "author": "Anonymous"}, {"id": 459, "text": "I contribute positively to others' lives.", "category": "connection", "author": "Anonymous"}, {"id": 460, "text": "I belong to a web of love and support.", "category": "connection", "author": "Anonymous"}, {"id": 461, "text": "Life is good to me.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 462, "text": "I see the good in the world.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 463, "text": "Joy is my natural state.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 464, "text": "I welcome happiness into my life.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 465, "text": "I choose hope over fear.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 466, "text": "I am surrounded by beauty.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 467, "text": "I focus on what's possible.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 468, "text": "Love and joy are all around me.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 469, "text": "I greet each day with optimism.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 470, "text": "My life is filled with light.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 471, "text": "I am open to new adventures.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 472, "text": "I choose laughter and joy.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 473, "text": "I am excited for what's ahead.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 474, "text": "My days are filled with meaning.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 475, "text": "I see opportunity everywhere.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 476, "text": "I radiate positivity.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 477, "text": "I believe good things are coming.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 478, "text": "I live in harmony with life.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 479, "text": "My heart is open to joy.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 480, "text": "I expect the best in every situation.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 481, "text": "I focus on what lifts me.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 482, "text": "I spread joy wherever I go.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 483, "text": "Every day brings new blessings.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 484, "text": "I welcome love into my heart.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 485, "text": "I choose to see the beauty in life.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 486, "text": "I am grateful for this journey.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 487, "text": "I let happiness find me easily.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 488, "text": "I invite peace and joy into my life.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 489, "text": "I see life as a gift.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 490, "text": "I welcome the magic of each day.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 491, "text": "I choose to smile today.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 492, "text": "I carry hope in my heart.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 493, "text": "I am open to miracles.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 494, "text": "I enjoy life's simple pleasures.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 495, "text": "My soul is light and free.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 496, "text": "I create my own joy.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 497, "text": "I trust that life supports me.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 498, "text": "I share my light with the world.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 499, "text": "Every day holds promise.", "category": "universal-positivity", "author": "Anonymous"}, {"id": 500, "text": "I am grateful to be alive.", "category": "universal-positivity", "author": "Anonymous"}];
+        
+        function showRandom() {
+            const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+            document.getElementById('affirmation-text').textContent = random.text;
+            document.getElementById('affirmation-category').textContent = `Category: ${random.category}`;
+            document.getElementById('random-affirmation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
